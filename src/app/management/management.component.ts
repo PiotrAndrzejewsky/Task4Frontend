@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-management',
@@ -13,13 +14,13 @@ export class ManagementComponent implements OnInit {
     'Content-Type': 'application/json',
     'Authorization': `${localStorage.getItem("bearer")}`
   });   
-
-  private blockUrl = "http://localhost:8080/user/block/";
-  private unblockUrl = "http://localhost:8080/user/unblock/";
-  private deleteUrl = "http://localhost:8080/user/delete/";
-  private loginUrl = "http://localhost:4200/login";
-  private managementUrl = "http://localhost:8080/user/management/";
-  private statusUrl = "http://localhost:8080/user/status/"
+  private baseUrl = environment.baseUrl;
+  private blockUrl = this.baseUrl + "user/block/";
+  private unblockUrl = this.baseUrl + "/user/unblock/";
+  private deleteUrl = this.baseUrl + "/user/delete/";
+  private loginUrl = environment.baseUrl + "login";
+  private managementUrl = this.baseUrl + "/user/management/";
+  private statusUrl = this.baseUrl + "/user/status/";
 
   public users: User[] = [];
 

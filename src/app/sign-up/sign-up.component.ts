@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,11 +20,11 @@ export class SignUpComponent implements OnInit {
   }
 
   signUp(): void {
-    let signUpUrl = "http://localhost:8080/signUp";
+    let signUpUrl = environment.baseUrl + "signUp";
     this.http.post(signUpUrl, this.model).subscribe(
       res => {
         alert("User was created");
-        let loginUrl = "http://localhost:4200/login";
+        let loginUrl = environment.baseFrontendUrl + "/login";
         window.location.href = loginUrl;
       },
       err => {

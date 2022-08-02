@@ -1,6 +1,7 @@
 import { HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -21,14 +22,14 @@ export class LoginComponent implements OnInit {
   }
 
   sendLoginRequest(): void{
-    let loginUrl = "http://localhost:8080/login";
-    let updateUrl = "http://localhost:8080/user/";
+    let loginUrl = environment.baseUrl + "login";
+    let updateUrl = environment.baseUrl + "user/"
     this.http.post(loginUrl, this.model, {observe: 'response'}).subscribe(
       res =>  {
         let header = res.headers.get('authorization');
         localStorage.setItem("bearer", header!);
         localStorage.setItem("username", this.model.username);
-        let managementUrl = "http://localhost:4200/user/management/";
+        let managementUrl = environment.baseFrontendUrl + "user/management/";
         let headers= new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${localStorage.getItem("bearer")}`
@@ -50,7 +51,7 @@ export class LoginComponent implements OnInit {
   }
 
   goToSignUp(): void {
-    let signUpUrl = "http://localhost:4200/signUp";
+    let signUpUrl = environment.baseFrontendUrl + "signUp";
     window.location.href = signUpUrl;
   }
 }
