@@ -14,11 +14,11 @@ export class ManagementComponent implements OnInit {
     'Content-Type': 'application/json',
     'Authorization': `${localStorage.getItem("bearer")}`
   });   
-  private baseUrl = environment.baseUrl;
+  private baseUrl = environment.baseFrontendUrl;
   private blockUrl = this.baseUrl + "user/block/";
   private unblockUrl = this.baseUrl + "/user/unblock/";
   private deleteUrl = this.baseUrl + "/user/delete/";
-  private loginUrl = environment.baseUrl + "login";
+  private loginUrl = this.baseUrl + "login";
   private managementUrl = this.baseUrl + "/user/management/";
   private statusUrl = this.baseUrl + "/user/status/";
 
