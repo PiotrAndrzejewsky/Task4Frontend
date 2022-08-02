@@ -1,0 +1,18 @@
+.form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 2.5%;
+}
+
+.form-group-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 2.5%;
+}

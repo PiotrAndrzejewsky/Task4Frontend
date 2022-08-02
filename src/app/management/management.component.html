@@ -1,0 +1,34 @@
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Management</title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th><input type="checkbox" (click)="checkUncheckAll()"></th>
+                <th>id</th>
+                <th>name</th>
+                <th>e-mail</th>
+                <th>last login time</th>
+                <th>registration time</th>
+                <th>active</th>
+            </tr>
+
+            <tr *ngFor="let user of users">
+                <td><input type="checkbox" class="check"></td>
+                <td>{{user.userId}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.lastLoginTime}}</td>
+                <td>{{user.registrationTime}}</td>
+                <td>{{user.active}}</td>
+            </tr>
+        </table>
+        <div class="buttons">
+            <button id="block" (click)="blockUnblockUser(false)">Block</button>
+            <button id="unblock" (click)="blockUnblockUser(true)"><img src="../../assets/icons8-unlock-48.png"></button>
+            <button id="delete" (click)="deleteUser()"><img src="../../assets/icons8-delete-48.png"></button>
+        </div>
+    </body>
+</html>
