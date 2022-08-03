@@ -13,16 +13,16 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 
 const appRoutes :Routes = [
   {
-  path:'/login',
+  path:'login',
   component:LoginComponent
   },
   {
-  path:'/user/management',
+  path:'user/management',
   component:ManagementComponent,
   pathMatch: 'full'
   },
   {
-    path:"/signUp",
+    path:"signUp",
     component:SignUpComponent
   },
   {
