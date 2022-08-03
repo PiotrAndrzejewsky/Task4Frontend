@@ -24,7 +24,7 @@ export class SignUpComponent implements OnInit {
     this.http.post(signUpUrl, this.model).subscribe(
       res => {
         alert("User was created");
-        let loginUrl = environment.baseFrontendUrl + "/login";
+        let loginUrl = environment.baseFrontendUrl + "login";
         window.location.href = loginUrl;
       },
       err => {
