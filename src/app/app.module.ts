@@ -18,8 +18,7 @@ const appRoutes :Routes = [
   },
   {
   path:'user/management',
-  component:ManagementComponent,
-  pathMatch: 'full'
+  component:ManagementComponent
   },
   {
     path:"signUp",
