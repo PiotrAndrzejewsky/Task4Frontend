@@ -49,6 +49,9 @@ export class ManagementComponent implements OnInit {
     this.http.get<Array<User>>(this.managementUrl + username, {headers: this.headers}).subscribe(
       res => {
         this.users = res;
+        for (let i = 0; i < this.users.length; i++) {
+          if (this.users[i].lastLoginTime == null) {this.users[i].lastLoginTime = "Never";}
+        }
       },
       err => {
         alert("Login first");

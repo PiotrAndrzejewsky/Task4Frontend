@@ -4,7 +4,7 @@
         <title>Login page</title>
     </head>
     <body>
-        <form name="form" #f="ngForm" (submit)="signUp()" novalidate class="login-form">
+        <form name="form" #f="ngForm" novalidate class="login-form">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text"
@@ -35,7 +35,11 @@
             </div>
 
             <div class="form-group-btn">
-                <button type="submit" class="submit-btn">
+                <button class="submit-btn" (click)="goToLogin()">
+                    <span>Login</span>
+                </button>
+
+                <button class="signUp-btn" (click)="signUp()">
                     <span>Sign Up</span>
                 </button>
             </div>

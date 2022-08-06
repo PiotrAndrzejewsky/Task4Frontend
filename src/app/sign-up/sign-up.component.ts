@@ -14,6 +14,8 @@ export class SignUpComponent implements OnInit {
     email:""
   };
 
+  private loginUrl = environment.baseFrontendUrl + "login";
+
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
@@ -21,16 +23,29 @@ export class SignUpComponent implements OnInit {
 
   signUp(): void {
     let signUpUrl = environment.baseUrl + "signUp";
-    this.http.post(signUpUrl, this.model).subscribe(
+    if (this.model.username == "" || this.model.password == "" || this.model.email == "") {
+      alert("all fields must be filled")
+      return;
+    }
+    this.http.post<boolean>(signUpUrl, this.model).subscribe(
       res => {
-        alert("User was created");
-        let loginUrl = environment.baseFrontendUrl + "login";
-        window.location.href = loginUrl;
+        if (res) {
+          alert("User was created");
+        }
+        else {
+          alert("Something went wrong");
+        }
+        
+        window.location.href = this.loginUrl;
       },
       err => {
         alert("Something went wrong, try again");
       }
     );
+  }
+
+  goToLogin() {
+    window.location.href = this.loginUrl;
   }
 
 }
